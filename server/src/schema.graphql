@@ -1,0 +1,18 @@
+type Query {
+  tracks: [Track!]!
+}
+
+type Track {
+  id: String!
+  name: String!
+  thumbnail: String
+  length: Int
+  modules: Int
+  author: Author!
+}
+
+type Author {
+  id: String!
+  name: String!
+  avatar: String
+}
