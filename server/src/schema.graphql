@@ -5,6 +5,19 @@ type Query {
   track(id: ID!): Track
 }
 
+type Mutation {
+  "Increments the track views."
+  incrementTrackViews(id: ID!): IncrementTrackViewsResponse!
+}
+
+"Increment TrackViews response unit."
+type IncrementTrackViewsResponse {
+  code: Int!
+  message: String!
+  success: Boolean!
+  track: Track
+}
+
 "Track Unit."
 type Track {
   "Unique identifier of the track."

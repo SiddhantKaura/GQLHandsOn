@@ -10,6 +10,28 @@ const resolvers = {
       return dataSources.trackApi.getTrack(id);
     },
   },
+  Mutation: {
+    incrementTrackViews: async (_parent, args, contextValue, _info) => {
+      const { id } = args;
+      const { dataSources } = contextValue;
+      try {
+        const updatedTrack = await dataSources.trackApi.incrementTrackViews(id);
+        return {
+          code: 200,
+          message: "Incremented Views.",
+          success: true,
+          track: updatedTrack,
+        };
+      } catch (error) {
+        return {
+          code: error.extensions.response.status,
+          message: error.extensions.response.body,
+          success: false,
+          track: null,
+        };
+      }
+    },
+  },
   Track: {
     author: (parent, _args, contextValue, _info) => {
       const { authorId } = parent;
