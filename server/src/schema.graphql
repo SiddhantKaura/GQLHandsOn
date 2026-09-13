@@ -1,18 +1,48 @@
 type Query {
+  "Fetch a list of tracks"
   tracks: [Track!]!
+  "Fetch a specific track by ID"
+  track(id: ID!): Track
 }
 
+"Track Unit."
 type Track {
-  id: String!
+  "Unique identifier of the track."
+  id: ID!
+  "Title of the track."
   title: String!
+  "Thumbnail path of the track."
   thumbnail: String
+  "Length of the track."
   length: Int
+  "Number of modules count."
   modulesCount: Int
+  "Author of the track."
   author: Author!
+  "Description of the track."
+  description: String
+  "Number of Views."
+  numberOfViews: Int
+  "List of modules."
+  modules: [Module!]!
 }
 
+"Module Unit."
+type Module {
+  "Unique identifier of the module."
+  id: ID!
+  "Name of the module."
+  title: String!
+  "Length of the module."
+  length: Int
+}
+
+"Author Unit."
 type Author {
-  id: String!
+  "Unique identifier of author."
+  id: ID!
+  "Name of author."
   name: String!
+  "Photo of author."
   photo: String
 }
