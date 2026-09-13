@@ -9,13 +9,13 @@ const TRACKS = gql`
     tracks {
       id
       length
-      modules
+      modulesCount
       author {
-        avatar
+        photo
         id
         name
       }
-      name
+      title
       thumbnail
     }
   }

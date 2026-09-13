@@ -4,15 +4,15 @@ type Query {
 
 type Track {
   id: String!
-  name: String!
+  title: String!
   thumbnail: String
   length: Int
-  modules: Int
+  modulesCount: Int
   author: Author!
 }
 
 type Author {
   id: String!
   name: String!
-  avatar: String
+  photo: String
 }
