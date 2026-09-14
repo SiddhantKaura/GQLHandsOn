@@ -9,6 +9,11 @@ const resolvers = {
       const { id } = args;
       return dataSources.trackApi.getTrack(id);
     },
+    module: (_parent, args, contextValue, _info) => {
+      const { dataSources } = contextValue;
+      const { id } = args;
+      return dataSources.trackApi.getModule(id);
+    },
   },
   Mutation: {
     incrementTrackViews: async (_parent, args, contextValue, _info) => {

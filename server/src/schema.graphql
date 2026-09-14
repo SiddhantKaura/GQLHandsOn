@@ -1,8 +1,10 @@
 type Query {
   "Fetch a list of tracks"
   tracks: [Track!]!
-  "Fetch a specific track by ID"
+  "Fetch a specific track by Id"
   track(id: ID!): Track
+  "Fetch a specific module by Id"
+  module(id: ID!): Module
 }
 
 type Mutation {
@@ -48,6 +50,10 @@ type Module {
   title: String!
   "Length of the module."
   length: Int
+  "Video path of the module"
+  videoUrl: String
+  "Content of the module"
+  content: String
 }
 
 "Author Unit."
